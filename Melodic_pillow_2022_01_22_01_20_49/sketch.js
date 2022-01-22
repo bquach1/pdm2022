@@ -6,6 +6,6 @@ function draw() {
   background(220);
   background(100, 210, 40);
   
-  circle(110, 100, 150);
+  circle(100, 100, 150);
   square(225, 25, 150);
 }
