@@ -3,7 +3,7 @@ function setup() {
 }
 
 function draw() {
-  background(0,0,255);
+  background(0,0,150);
 
   //creating green background circle
   fill(0, 135, 0);
