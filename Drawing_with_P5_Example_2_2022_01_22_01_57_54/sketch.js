@@ -7,7 +7,7 @@ function draw() {
   
   noStroke();
   //red (top) circle
-  let color1 = color(255, 0, 0, 100)
+  let color1 = color(255, 0, 0, 90)
   fill(color1);
   circle(200, 150, 150, 100);
   let value = alpha(color1);
@@ -15,11 +15,11 @@ function draw() {
 
   
   //blue (left) circle
-  fill(0,0,255, 100);
+  fill(0,0,255, 90);
   circle(150, 225, 150, 50);
 
   //green (right) circle
-  fill(0,255,0, 100);
+  fill(0,255,0, 90);
   circle(250, 225, 150, 25);
   
 }
