@@ -5,9 +5,21 @@ function setup() {
 function draw() {
   background('white'); 
   
-  blendMode(LIGHTEST);
-  strokeWeight(30);
-  circle(200, 150, 100);
-  circle(150, 200, 100);
-  circle(250, 200, 100);
+  noStroke();
+  //red (top) circle
+  let color1 = color(255, 0, 0, 100)
+  fill(color1);
+  circle(200, 150, 150, 100);
+  let value = alpha(color1);
+  fill(value);
+
+  
+  //blue (left) circle
+  fill(0,0,255, 100);
+  circle(150, 225, 150, 50);
+
+  //green (right) circle
+  fill(0,255,0, 100);
+  circle(250, 225, 150, 25);
+  
 }
