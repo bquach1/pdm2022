@@ -77,6 +77,15 @@ class Character {
       this.sx = (this.sx + 1) % 8;
     } 
     this.x += 2 * this.move;
+
+    if(this.x < 30) {
+      this.move = 1;
+      this.facing = 1;
+    }
+    if(this.x > width - 30) {
+      this.move = -1;
+      this.facing = -1;
+    }
     pop();
   }
   go(direction) {
