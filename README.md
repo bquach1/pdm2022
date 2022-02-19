@@ -2,11 +2,18 @@
 PDM Project Links
 
 Drawing with P5: 
-Example 1: https://bquach1.github.io/pdm2022/drawing-with-p5-example-1/
-Example 2: https://bquach1.github.io/pdm2022/drawing-with-p5-example-2/
-Example 3: https://bquach1.github.io/pdm2022/drawing-with-p5-example-3/
-Example 4: https://bquach1.github.io/pdm2022/drawing-with-p5-example-4/
+Example 1: https://bquach1.github.io/pdm2022/graphics-unit-1/drawing-with-p5-example-1/
 
-Paint App: https://bquach1.github.io/pdm2022/paint-app/
+Example 2: https://bquach1.github.io/pdm2022/graphics-unit-1/drawing-with-p5-example-2/
 
-Sprite Animation: https://bquach1.github.io/pdm2022/sprite-animation/
+Example 3: https://bquach1.github.io/pdm2022/graphics-unit-1/drawing-with-p5-example-3/
+
+Example 4: https://bquach1.github.io/pdm2022/graphics-unit-1/drawing-with-p5-example-4/
+
+Paint App: https://bquach1.github.io/pdm2022/graphics-unit-1/paint-app/
+
+Sprite Animation: https://bquach1.github.io/pdm2022/graphics-unit-1/sprite-animation/
+
+Sound:
+
+
