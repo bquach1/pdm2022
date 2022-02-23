@@ -16,4 +16,4 @@ Sprite Animation: https://bquach1.github.io/pdm2022/graphics-unit-1/sprite-anima
 
 Sound:
 
-
+Making a Sampler: https://bquach1.github.io/pdm2022/sound-unit-2/new-sampler/
