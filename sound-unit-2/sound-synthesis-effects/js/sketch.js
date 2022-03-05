@@ -33,8 +33,8 @@ let freqLFO = new Tone.LFO(4,200,500).start();
 freqLFO.connect(osc.frequency); 
 
 function preload() {
-  pokeball = loadImage("pokeball.jpg");
-  chicken = loadImage("chicken-little.jpg");
+  pokeball = loadImage("media/pokeball.jpg");
+  chicken = loadImage("media/chicken-little.jpg");
 }
 
 function setup() {
