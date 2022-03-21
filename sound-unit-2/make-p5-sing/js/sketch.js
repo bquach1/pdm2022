@@ -1,27 +1,67 @@
-let pitch = 800;
+//Chords and scales creation
+
+let synth = new Tone.PolySynth().toDestination();
+let synth2 = new Tone.MembraneSynth().toDestination();
+
+let pattern = new Tone.Pattern((time, note)=> {
+  synth.triggerAttackRelease(note,0.25,time);
+}, ["C4", "D4", "E4", "G4", "A4"]);
+
+let melody = new Tone.Sequence((time, note)=> {
+  if (note != null) {
+    synth.triggerAttackRelease(note, '8n', time);
+  }
+}, ['A4', 'B4', 'C4', 'D5', 'G4']);
+
+let chords = [
+  {"time": "0:0", "note": ["C4", "E3", "G4"]},
+  {"time": "0:3", "note": ["F4", "A4", "C4"]},
+  {"time": "1:1", "note": ["G4", "A3", "D4"]},
+  {"time": "1:2", "note": ["G4", "B4", "F4"]}
+]
+
+let chord = new Tone.Part((time, notes)=> {
+  synth.triggerAttackRelease(notes.note, "2n", time);
+}, chords )
+chord.loop = 8;
+chord.loopEnd = '2m';
+
+const synthA = new Tone.FMSynth().toDestination();
+const synthB = new Tone.AMSynth().toDestination();
+
+const loopA = new Tone.Loop(time => {
+  synthA.triggerAttackRelease("C5", "8n", time);
+}, "4n").start(0);
+
+// const loopB = new Tone.Loop(time => {
+//   synthB.triggerAttackRelease("C4", "8n", time);
+// }, "4n").start('8n');
+
+Tone.Transport.bpm.value = 100;
+
+//Other constant variables/synths/instruments.
+
+let pitch = 200;
 let time = 20;
+
+const vol = new Tone.Volume(-500).toDestination();
 
 const reverb = new Tone.JCReverb(0.4).toDestination();
 const tremolo = new Tone.Tremolo(1, 0.75).toDestination().start();
 
-const synth = new Tone.MembraneSynth().chain(reverb,tremolo).toDestination();
-const resetSynth = new Tone.AMSynth().chain(reverb).toDestination();
+//const synth = new Tone.MembraneSynth().chain(reverb,tremolo).toDestination();
+const drawSynth = new Tone.MonoSynth().chain(vol).toDestination();
 
-let osc = new Tone.PulseOscillator(50, 0.2).start();
-let gain = new Tone.Gain().toDestination();
-let pan = new Tone.Panner().connect(gain);
-let ampEnv = new Tone.AmplitudeEnvelope({
+let resetOsc = new Tone.PWMOscillator(500, 50).start();
+let resetGain = new Tone.Gain().toDestination();
+let resetPan = new Tone.Panner().connect(resetGain);
+let resetAmpEnv = new Tone.AmplitudeEnvelope({
   attack: 0.1,
   decay: 1,
   sustain: 0.1,
   release: 1
-}).connect(pan);
-osc.connect(ampEnv);
-
-const loop = new Tone.Loop((time) => {
-  synth.triggerAttackRelease('C7', '4n', '+1');
-}, "1n").start(0);
-Tone.Transport.start();
+}).connect(resetPan);
+resetOsc.connect(resetAmpEnv);
 
 function setup() {
   createCanvas(displayWidth, displayHeight);
@@ -38,6 +78,12 @@ function setup() {
   slider = createSlider(1, 10, 5, 1);
   slider.position(0, windowHeight - 20);
   slider.style('width', '100px');
+
+  //music
+  Tone.start();
+  melody.start('1m');
+  chord.start('0:0');
+  Tone.Transport.start();
 }
 
 function draw() {
@@ -65,9 +111,11 @@ function draw() {
   rect(0, 279, 30);
 
   let strokeSize = slider.value();
+  let pitch = slider.value();
 
   if (mouseIsPressed) {
-    //ampEnv.triggerAttackRelease('4n','+1');
+    Tone.start();
+    drawSynth.triggerAttackRelease('256n', time);
     if (mouseX <= 30) {
       if (mouseY < 31) {
         brushColor = color(255, 0, 0);
@@ -97,14 +145,8 @@ function draw() {
   }
 }
 
-function mousePressed() {
-  //Tone.start();
-  //ampEnv.triggerAttackRelease('4n');
-  //osc.frequency.linearRampToValueAtTime(pitch,'+1');
-}
-
 function reset() {
   background(255, 255, 255);
   Tone.start();
-  resetSynth.triggerAttackRelease();  
+  resetAmpEnv.triggerAttackRelease('4n');
 }
