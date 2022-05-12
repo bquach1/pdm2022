@@ -17,3 +17,9 @@ Sprite Animation: https://bquach1.github.io/pdm2022/graphics-unit-1/sprite-anima
 Sound:
 
 Making a Sampler: https://bquach1.github.io/pdm2022/sound-unit-2/new-sampler/
+
+Synths and Sequencers: https://bquach1.github.io/pdm2022/sound-unit-2/synths-and-sequencers/
+
+Sound Synthesis and Effects: https://bquach1.github.io/pdm2022/sound-unit-2/sound-synthesis-effects/
+
+Make P5 Sing!: https://bquach1.github.io/pdm2022/sound-unit-2/make-p5-sing/
